@@ -1,0 +1,123 @@
+<body *ngIf="flat">
+<div class="settings-head">
+  <div class="settings-head_title">
+    Here you could see details
+  </div>
+  <div class="settings-head_subheading">
+    Any updates you make here will also appear in main page
+  </div>
+</div>
+<div *ngFor="let flatPhoto of flat.listPhotoFlats">
+  <div class="float-left">
+    <img src="http://localhost:8080/images/flatsPicture/{{flatPhoto}}" width="200" height="200" class="picture">
+  </div>
+</div>
+<div class="clearFix br-t"></div>
+<div class="rowCustom">
+  <div class="col-md-6 pd-0">
+    <div class="settings-item rowCustom">
+      <div class="settings-item_label col-md-6 pd-0">
+        Property name
+      </div>
+      <div class="col-md-6 pd-0">
+        <span>{{flat.nameFlat}}</span>
+      </div>
+    </div>
+
+    <div class="settings-item rowCustom">
+      <div class="settings-item_label col-md-6 pd-0">
+        Price per night
+      </div>
+      <div class="col-md-6 pd-0">
+        <span>{{flat.price}}</span>
+      </div>
+    </div>
+
+    <div class="settings-item rowCustom">
+      <div class="settings-item_label col-md-6 pd-0">
+        Square
+      </div>
+      <div class="col-md-6 pd-0">
+        <span>{{flat.square}}</span>
+      </div>
+    </div>
+
+    <div *ngIf="flat.storeys" class="settings-item rowCustom">
+      <div class="settings-item_label col-md-6 pd-0">
+        Storeys building
+      </div>
+      <div class="col-md-6 pd-0">
+        <span>{{flat.storeys}}</span>
+      </div>
+    </div>
+
+    <div *ngIf="flat.wallingMaterial" class="settings-item rowCustom">
+      <div class="settings-item_label col-md-6 pd-0">
+        Walling Material
+      </div>
+      <div class="col-md-6 pd-0">
+        <span>{{flat.wallingMaterial}}</span>
+      </div>
+    </div>
+
+    <div class="settings-item rowCustom">
+      <div class="settings-item_label col-md-6 pd-0">
+        Number of rooms
+      </div>
+      <div class="settings-item_content col-md-6 pd-0">
+        <span>{{flat.rooms}}</span>
+      </div>
+    </div>
+
+    <div *ngIf="flat.floor" class="settings-item rowCustom">
+      <div class="settings-item_label col-md-6 pd-0">
+        Floor
+      </div>
+      <div class="settings-item_content col-md-6 pd-0">
+        <span>{{flat.floor}}</span>
+      </div>
+    </div>
+
+    <div class="settings-item rowCustom">
+      <div class="settings-item_label col-md-6 pd-0">
+        Find your address
+      </div>
+      <div class="col-md-6 pd-0">
+        <span>{{flat.address}}</span>
+      </div>
+    </div>
+
+    <div *ngIf="flat.guests" class="settings-item rowCustom">
+      <div class="settings-item_label col-md-6 pd-0">
+        How many guests can stay
+      </div>
+      <div class="col-md-6 pd-0">
+        <span>{{flat.guests}}</span>
+      </div>
+    </div>
+    <div class="settings-item rowCustom">
+      <div class="col-md-6 pd-0">
+        <span [hidden]="!showNumber">{{phone}}</span>
+        <button *ngIf="phone" [hidden]="showNumber" (click)="showNumber2()" class="btn btn-light btn-custom">Show
+          number
+        </button>
+      </div>
+      <div class="col-md-6 pd-0">
+        <button (click)="contactWithOwner(flat.id)" class="btn btn-light btn-custom">Contact with owner</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 pd-0">
+    <p>Check-in check-out date </p>
+    <div class="w">
+      <app-datepicker-range></app-datepicker-range>
+    </div>
+  </div>
+</div>
+<!--<h2 class="color text-center">{{answer}}</h2>-->
+<agm-map [zoom]="20" [latitude]="lat" [longitude]="lng" [scrollwheel]="null">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+<button class="closeButton" (click)="closeChanged()"></button>
+</body>

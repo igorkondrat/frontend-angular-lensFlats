@@ -1,0 +1,16 @@
+<body>
+<h2>Select a file to upload below</h2>
+<form #photoForm="ngForm" (ngSubmit)="changePhoto(photoForm)">
+  <div class="inputBox">
+    <input type="file" name="photo" placeholder="photo" (change)="onFileChanged($event)" accept="image/*">
+  </div>
+  <div *ngIf="previewPhoto" class="previewPhotoDiv">
+    <img [src]="previewPhoto" class="previewPhoto" alt="Preview Photo">
+  </div>
+  <div class="form-inline">
+    <button>Change Photo</button>
+  </div>
+  <div class="answer">{{answer}}</div>
+</form>
+<button class="closeButton" (click)="closeChanged()"></button>
+</body>

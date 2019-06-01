@@ -1,0 +1,17 @@
+body {
+  background: transparent;
+}
+
+.pd-0 {
+  padding: 0;
+}
+
+.btn-custom {
+  width: 100%;
+  border-radius: 0;
+}
+
+.btn-custom:hover {
+  color: #005cbf;
+  border-radius: 0;
+}

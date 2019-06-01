@@ -1,0 +1,24 @@
+<ngb-datepicker (select)="onDateSelection($event)"
+                [displayMonths]="2"
+                [dayTemplate]="t"
+                [minDate]="today"
+                [maxDate]="{year: 2025, month: 12, day: 31}"
+                [markDisabled]=""
+                outsideDays="hidden">
+</ngb-datepicker>
+
+<ng-template #t let-date let-focused="focused">
+  <span class="custom-day"
+        [class.focused]="focused"
+        [class.range]="isRange(date)"
+        [class.faded]="isHovered(date) || isInside(date)"
+        (mouseenter)="hoveredDate = date"
+        (mouseleave)="hoveredDate = null">
+    {{ date.day }}
+  </span>
+</ng-template>
+
+<hr>
+<div *ngIf="totalPrice">
+  <h2> Total price: {{totalPrice}}</h2>
+</div>

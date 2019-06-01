@@ -1,0 +1,84 @@
+.settings-navbar {
+  height: 300px;
+  border: 1px solid #1e7e34;
+}
+
+.settings-container {
+  border: 1px solid #bd2130;
+}
+
+.settings-head {
+  padding: 20px;
+  border-bottom: solid 1px #e3e5e4;
+  color: #4b4b4b;
+  line-height: 1.2;
+  background-color: #fbfbfb;
+}
+
+.settings-head_title {
+  color: #4b4b4b;
+  font-size: 24px;
+}
+
+.settings-head_subheading {
+  color: #7f7f7f;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.settings-content {
+  padding: 10px 0;
+  margin: 5px;
+}
+
+.settings-item_label {
+  color: #4b4b4b;
+  line-height: 32px;
+}
+
+.rowCustom {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.avatar-img {
+  border-radius: 3px;
+}
+
+.settings-info {
+  margin-top: 10px;
+  color: #7f7f7f;
+  line-height: 1.2;
+}
+
+.settings-item {
+  margin-bottom: 10px;
+}
+
+.w-73 {
+  width: 73%;
+}
+
+.updateButton {
+  display: flex;
+  margin: auto;
+}
+
+.input-form {
+  width: 50%;
+  border-radius: 3px;
+  border: 1px solid #d7d7d7;
+  padding: 7px 12px;
+  height: 36px;
+}
+
+.btn-custom {
+  border: black 1px solid;
+  border-radius: 3px;
+}
+
+.btn-custom:hover {
+  color: #005cbf;
+  border-radius: 3px;
+}

@@ -1,0 +1,23 @@
+<body>
+<div class="form-group w-75">
+  <form #messageForm="ngForm" (ngSubmit)="createMessage(messageForm)" class="mt-3">
+    <div class="inputBox">
+      <input ngModel required class="form-control" type="email" #emailTo="ngModel"
+             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="receiverEmail"
+             placeholder="Receiver email" [(ngModel)]="email">
+      <div [hidden]="emailTo.valid || emailTo.pristine" class="alert alert-danger">
+        Email is incorrect
+      </div>
+    </div>
+    <div class="inputBox">
+      <textarea ngModel class="form-control" required name="text" cols="60" rows="10" placeholder="Write your message"
+                id="text"></textarea>
+    </div>
+    <button class="btn btn-light btn-custom">Send</button>
+    <h2 class="alert-info text-center">{{answer}}</h2>
+  </form>
+  <div id="target">
+
+  </div>
+</div>
+</body>

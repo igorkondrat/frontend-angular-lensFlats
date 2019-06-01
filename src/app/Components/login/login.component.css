@@ -1,0 +1,132 @@
+button {
+  width: 140px;
+  padding: 0 12px;
+  border: 0;
+  text-decoration: none;
+  outline: none;
+  display: inline-block;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: #524f4e;
+  background: white;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+  transition: .3s;
+  margin: auto;
+}
+
+button:hover {
+  background: #03a9f4;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
+  color: white;
+  transform: translateY(-7px);
+}
+
+body {
+  position: absolute;
+  width: 400px;
+  padding: 40px;
+  background: rgba(9, 45, 89, 0.9);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(25, 73, 111, 0.6);
+  border-radius: 10px;
+  z-index: 500;
+
+  left: 35%;
+}
+
+@media (max-width: 420px) {
+  body {
+    position: absolute;
+    width: auto;
+    padding: 40px;
+    background: rgba(9, 45, 89, 0.9);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(25, 73, 111, 0.6);
+    border-radius: 10px;
+    z-index: 500;
+    left: 0;
+    right: 0;
+  }
+}
+
+body h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.inputBox {
+  position: relative;
+}
+
+input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+  letter-spacing: 1px;
+}
+
+label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+  letter-spacing: 1px;
+
+}
+
+input:focus ~ label,
+input:valid ~ label {
+  top: -18px;
+  left: 0;
+  color: #03a9f4;
+  font-size: 12px;
+}
+
+.closeButton {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  background: #bd2130;
+  transform: rotate(360deg);
+  box-shadow: none;
+}
+
+.answer {
+  text-align: center;
+  margin-top: 30px;
+  color: #e21111;
+  font-size: 20px;
+}
+
+.forgot-password {
+  color: #fff;
+}
+
+.forgot-password:hover {
+  color: #03a9f4;
+}

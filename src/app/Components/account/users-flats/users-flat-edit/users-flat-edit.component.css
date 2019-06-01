@@ -1,0 +1,148 @@
+body {
+  position: fixed;
+  margin-left: auto;
+  margin-right: auto;
+  left: 10%;
+  right: 10%;
+  top: 80px;
+  padding: 40px;
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
+  border-radius: 3px;
+  z-index: 500;
+  overflow-y: scroll;
+  height: 600px;
+}
+
+.rowCustom {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.picture {
+  border-radius: 3px;
+  margin: 3px;
+}
+
+.br-t {
+  border-bottom: solid 1px #e3e5e4;
+  padding: 10px 0;
+  margin: 0 !important;
+}
+
+.flex-center {
+  justify-content: center;
+}
+
+.settings-head {
+  padding: 20px;
+  border-bottom: solid 1px #e3e5e4;
+  color: #4b4b4b;
+  line-height: 1.2;
+  background-color: #fbfbfb;
+}
+
+.settings-head_title {
+  color: #4b4b4b;
+  font-size: 24px;
+}
+
+.settings-head_subheading {
+  color: #7f7f7f;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.closeButton {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  padding: 0 12px;
+  border: 0;
+  outline: none;
+  border-radius: 5px;
+  background: #343a40;
+  transition: .3s;
+}
+
+.closeButton:hover {
+  background: #bd2130;
+  transform: rotate(360deg);
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.pd-0 {
+  padding: 0;
+}
+
+.input-form {
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid #d7d7d7;
+  padding: 7px 12px;
+  height: 36px;
+}
+
+.settings-content {
+  padding: 10px 0;
+  margin: 5px;
+}
+
+.settings-item {
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.settings-item_label {
+  color: #4b4b4b;
+  line-height: 32px;
+}
+
+.updateButton {
+  display: flex;
+  margin: auto;
+}
+
+.color {
+  color: #78aab3 !important;
+}
+
+.pd-t {
+  padding-top: 3px;
+}
+
+agm-map {
+  height: 500px;
+}
+
+.settings-info {
+  margin-top: 4px;
+  color: #7f7f7f;
+  line-height: 1.2;
+  justify-content: center;
+}
+
+.settings-info img {
+  margin-top: 5px;
+}
+
+.btn-custom {
+  width: 50%;
+  border-radius: 0;
+  margin: 3px;
+  border: black 1px solid;
+}
+
+.btn-custom:hover {
+  color: #005cbf;
+  border-radius: 0;
+}

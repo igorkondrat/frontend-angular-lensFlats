@@ -1,0 +1,44 @@
+<body @showLogin>
+<h2>Login</h2>
+<form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+  <div class="inputBox">
+    <input type="email"
+           name="email"
+           ngModel
+           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+           [ngStyle]="{borderColor:email.valid ||!email.touched? 'white' : 'red'}"
+           #email="ngModel"
+           [(ngModel)]="user.email"
+           required
+           autocomplete="email"
+           [ngModelOptions]="{ updateOn:'change'}">
+    <label>Email</label>
+  </div>
+  <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+    Email is incorrect
+  </div>
+  <div class="inputBox">
+    <input type="password"
+           name="password"
+           [ngStyle]="{borderColor:password.valid || !password.touched?'white' : 'red'}"
+           #password="ngModel"
+           ngModel
+           [(ngModel)]="user.password"
+           required=""
+           autocomplete="current-password">
+    <label>Password</label>
+  </div>
+  <div *ngIf="!password.valid && password.value.length<2 && !password.pristine" class="alert alert-danger">
+    Password is incorrect
+  </div>
+  <div class="form-inline">
+    <button *ngIf="loginForm.valid " [disabled]="!loginForm.valid || !loginForm.valid && loginForm.dirty">Sing In
+    </button>
+  </div>
+  <div class="text-center mt-2">
+    <a routerLink="../forgotPassword" class="forgot-password">Forgot password?</a>
+  </div>
+  <h3 class="answer" *ngIf="answer">{{answer}}</h3>
+</form>
+<button class="closeButton" (click)="closeChanged()"></button>
+</body>

@@ -1,0 +1,84 @@
+<body>
+<router-outlet></router-outlet>
+<div class="pagination-control">
+  <pagination-controls *ngIf="flats && flats.length>5" (pageChange)="p =$event"
+                       class="text-center"></pagination-controls>
+</div>
+<div *ngFor="let flat of flats | paginate: {itemsPerPage:5, currentPage: p}" class="rowCustom">
+
+  <div class="rowCustom">
+
+    <div class="flatsView rowCustom">
+      <div class="col-md-4 pl-0">
+        <div class="text-center">
+          <img src="http://localhost:8080/images/flatsPicture/{{flat.listPhotoFlats[0]}}" width="223" height="223"
+               class="br-r" [routerLink]="'userFlatEdit/'+flat.id">
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-8">
+            <p>Apartments information:</p>
+            <p>{{flat.nameFlat}}</p>
+            <p>Rooms: {{flat.rooms}}</p>
+            <p>Square: {{flat.square}}</p>
+            <p>Address: {{flat.address}}</p>
+          </div>
+          <div class="col-md-4">
+            <p class="m-0">Price per night:</p>
+            <p class="prc-font"><b>{{flat.price}} ₴</b></p>
+
+            <p class="m-0">Rating flat:</p>
+            <p *ngIf="flat.averageRating == 0" class="prc-font">
+              <b>No rating</b>
+            </p>
+            <p *ngIf="flat.averageRating >0" class="prc-font">
+              <b>{{flat.averageRating | number:'1.0-2'}} ★</b>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="rowCustom pd-l-60">
+        <form class="rating">
+          <label>
+            <input type="radio" name="stars" value="1" (click)="rating( flat.id,1)"/>
+            <span class="icon">★</span>
+          </label>
+          <label>
+            <input type="radio" name="stars" value="2" (click)="rating(flat.id, 2)"/>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+          </label>
+          <label>
+            <input type="radio" name="stars" value="3" (click)="rating(flat.id, 3)"/>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+          </label>
+          <label>
+            <input type="radio" name="stars" value="4" (click)="rating(flat.id, 4)"/>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+          </label>
+          <label>
+            <input type="radio" name="stars" value="5" (click)="rating(flat.id, 5)"/>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+          </label>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<div class="pagination-control">
+  <pagination-controls *ngIf="flats && flats.length>5" (pageChange)="p =$event"
+                       class="text-center"></pagination-controls>
+</div>
+</body>

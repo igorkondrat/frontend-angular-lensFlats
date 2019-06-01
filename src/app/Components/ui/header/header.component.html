@@ -1,0 +1,33 @@
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg mb-5">
+  <a class="navbar-brand" href="/">
+    <img src="assets/images/lensflets.png" width="40" height="40" alt="LensFlets">
+  </a>
+  <a class="navbar-brand" href="/">LensFlats.com</a>
+  <button class="navbar-toggler" type="button" (click)="toggleNavbar()" data-toggle="collapse"
+          data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
+
+    <div class="navbar-expand ml-auto navbar-nav">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link padding-left-0" routerLink="propertyList">Create property</a>
+        <a class="nav-item nav-link" *ngIf="!isLoggedIn" routerLink="registration">Registration</a>
+        <div class="nav-item nav-link dropdown" *ngIf="isLoggedIn">
+          <img *ngIf="user" src="http://localhost:8080/images/usersPicture/{{user.profilePicture}}"
+               width="30" height="30" class="border-radius" alt="Profile picture">
+          <span class="account">Account</span>
+          <div class="dropdown-content bg">
+            <a class="nav-item nav-link" routerLink="account/aboutUser" (click)="myDashboard()">Dashboard</a>
+            <a class="nav-item nav-link" routerLink="property" (click)="myDashboard()">Property</a>
+            <a class="nav-item nav-link" routerLink="/" (click)="onSingOut()">Sing out</a>
+          </div>
+        </div>
+        <a class="nav-item nav-link" *ngIf="!isLoggedIn" routerLink="login">Sing in</a>
+      </div>
+    </div>
+  </div>
+</nav>
+</body>

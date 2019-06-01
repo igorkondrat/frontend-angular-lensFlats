@@ -1,0 +1,14 @@
+<body>
+<button routerLink="../createMessage" class="btn btn-custom btn-light">Create Message</button>
+<div *ngIf="messages">
+  <div *ngFor="let message of messages" class="m-3">
+    <tr>
+      <div>
+        <td>
+          <a [routerLink]="'../singleMessage/'+ message.id" class="btn btn-info">From: {{message.fromUser}}</a>
+        </td>
+      </div>
+    </tr>
+  </div>
+</div>
+</body>

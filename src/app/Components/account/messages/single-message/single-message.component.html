@@ -1,0 +1,21 @@
+<html>
+<head>
+</head>
+<body *ngIf="messages">
+<!--<div *ngFor="let history of message">-->
+<div *ngFor="let messageArray of messages.messageHistory" class="m-3">
+  <span class="text-info">{{messageArray.messageSender}}:   </span>
+  <span> {{messageArray.message}}</span>
+  <!--</div>-->
+</div>
+<div class="form-group w-75">
+  <form #messageForm="ngForm" (ngSubmit)="sendMessage(messageForm)">
+    <input ngModel required type="hidden" name="id" [(ngModel)]="messages.id">
+    <div class="inputBox">
+      <textarea ngModel id="text" required name="text" cols="60" rows="10" placeholder="Write your message"></textarea>
+    </div>
+    <button class="bnt btn-light btn-custom">Send</button>
+  </form>
+</div>
+</body>
+</html>

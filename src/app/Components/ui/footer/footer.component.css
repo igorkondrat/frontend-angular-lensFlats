@@ -1,0 +1,56 @@
+.h-100 {
+  height: auto;
+}
+
+.fa-phone:before {
+  content: "\f095";
+}
+
+.fl {
+  filter: invert(1);
+}
+
+.txt-white {
+  color: #f7f7f7;
+}
+
+.footer-contact {
+  width: auto;
+}
+
+.logo {
+  width: auto;
+}
+
+.bg {
+  background: rgb(9, 45, 89);
+}
+
+@media (max-width: 576px) {
+  .logo {
+    width: 30px;
+    display: inline-block;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    width: 30px;
+    display: inline-block;
+  }
+}
+
+@media (max-width: 992px) {
+  .logo {
+    width: 30px;
+    display: inline-block;
+  }
+}
+
+@media (max-width: 1200px) {
+  .logo {
+    width: 30px;
+    display: inline-block;
+  }
+}
+

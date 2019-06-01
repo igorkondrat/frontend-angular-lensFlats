@@ -1,0 +1,9 @@
+body{
+  background-image: url("../../../../assets/images/gotham.jpg");
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.h-700{
+min-height: 900px;
+}

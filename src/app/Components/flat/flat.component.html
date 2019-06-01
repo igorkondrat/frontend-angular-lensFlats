@@ -1,0 +1,65 @@
+<body @showFlatRegistration>
+<h2>Create your property</h2>
+<form #flatForm="ngForm" (ngSubmit)="registerFlat(flatForm)">
+  <div class="inputBox">
+    <input type="text" name="address" ngModel
+           required
+           google-place
+           placeholder=""
+           (onSelect)="setAddress($event)"
+           #address="ngModel"
+           [ngStyle]="{borderColor:address.valid || !address.touched? 'white' : 'red'}">
+    <label>Address</label>
+  </div>
+  <div class="inputBox">
+    <input type="text" name="nameFlat" ngModel
+           required
+           #name="ngModel"
+           [ngStyle]="{borderColor:name.valid || !name.touched? 'white' : 'red'}"
+           pattern="[a-zA-Zа-яА-я іІїЇєЄ 0-9]*">
+    <label>Property name</label>
+  </div>
+  <div class="inputBox">
+    <input type="number" name="price" ngModel
+           required
+           #price="ngModel"
+           [ngStyle]="{borderColor:price.valid || !price.touched? 'white' : 'red'}">
+    <label>Price(₴)</label>
+    <div [hidden]="price.value >0 || price.pristine" class="alert alert-danger">
+      Price can not be less then 1
+    </div>
+  </div>
+  <div class="inputBox">
+    <input type="number" name="square" ngModel
+           required
+           [ngStyle]="{borderColor:square.valid || !square.touched? 'white' : 'red'}"
+           #square="ngModel">
+    <label>Square(m²)</label>
+    <div [hidden]="square.value >0 || square.pristine" class="alert alert-danger">
+      Square can not be less then 1
+    </div>
+  </div>
+  <div class="inputBox">
+    <input type="number" name="rooms" ngModel
+           [ngStyle]="{borderColor:rooms.valid || !rooms.touched? 'white' : 'red'}"
+           required
+           #rooms="ngModel">
+    <div [hidden]="rooms.value >0 || rooms.pristine" class="alert alert-danger">
+      Rooms can not be less then 1
+    </div>
+    <label>Rooms</label>
+  </div>
+  <div class="form-inline">
+    <button [hidden]="square.pristine
+                   || square.value <= 0
+                   || addr.country == undefined
+                   || rooms.value <= 0
+                   || price.value <= 0
+                   || price.pristine">Create
+    </button>
+  </div>
+  <div class="answer">{{answer}}</div>
+</form>
+<button class="closeButton" (click)="closeChanged()"></button>
+</body>
+

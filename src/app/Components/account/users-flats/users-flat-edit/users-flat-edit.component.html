@@ -1,0 +1,169 @@
+<body *ngIf="flat">
+<div class="settings-head">
+  <div class="settings-head_title">
+    Here you could edit your flat
+  </div>
+  <div class="settings-head_subheading">
+    Any updates you make here will also appear in main page
+  </div>
+</div>
+<div *ngFor="let flatPhoto of flat.listPhotoFlats">
+  <div class="float-left">
+    <img src="http://localhost:8080/images/flatsPicture/{{flatPhoto}}" width="200" height="200" class="picture"
+         (click)="deletePhoto(flatPhoto, flat.id)" alt="Flat Photo">
+  </div>
+</div>
+<div class="clearFix"></div>
+<div class="settings-item rowCustom br-t">
+
+  <input type="file" multiple accept="image/*" name="photoFlats" placeholder="photoFlats"
+         (change)="onFileChangedFlats($event)">
+
+  <form #photoForm="ngForm" (ngSubmit)="onSetFile(photoForm)">
+    <input type="hidden" name="id" [(ngModel)]="flat.id">
+    <button>Add</button>
+  </form>
+
+  <div class="settings-info rowCustom">
+    <img src="assets/images/info.png" width="11" height="11">
+    <span> To remove a photo, click on it</span>
+  </div>
+
+</div>
+
+<h2 *ngIf="answer" class="color text-center br-t">{{answer}}</h2>
+
+<form #flatForm="ngForm" (ngSubmit)="editFlat(flatForm)">
+
+  <div class="settings-item rowCustom">
+    <div class="settings-item_label col-md-3 pd-0">
+      Property name
+    </div>
+    <div class="col-md-3 pd-0">
+      <input class="input-form" type="hidden" [(ngModel)]="flat.id" ngModel name="id">
+      <input class="input-form" type="text" [(ngModel)]="flat.nameFlat" ngModel
+             name="nameFlat" #name="ngModel"
+             pattern="[a-zA-Zа-яА-я іІїЇєЄ]*">
+    </div>
+  </div>
+
+  <div class="settings-item rowCustom">
+    <div class="settings-item_label col-md-3 pd-0">
+      Price per night (₴)
+    </div>
+    <div class="col-md-3 pd-0">
+      <input #price="ngModel" class="input-form" type="number" pattern="[0-9]" [(ngModel)]="flat.price" ngModel
+             name="price">
+      <div [hidden]=" price.value >0 || price.pristine" class="alert alert-danger">
+        Price can not be less then 1
+      </div>
+    </div>
+  </div>
+
+  <div class="settings-item rowCustom">
+    <div class="settings-item_label col-md-3 pd-0">
+      Square (m²)
+    </div>
+    <div class="col-md-3 pd-0">
+      <input class="input-form" type="number" #square="ngModel" pattern="[0-9]" [(ngModel)]="flat.square" ngModel
+             name="square">
+      <div [hidden]="square.value >0 || square.pristine" class="alert alert-danger">
+        Square can not be less then 1
+      </div>
+    </div>
+  </div>
+
+  <div class="settings-item rowCustom">
+    <div class="settings-item_label col-md-3 pd-0">
+      Storeys building
+    </div>
+    <div class="col-md-3 pd-0">
+      <input class="input-form" type="number" #storeys="ngModel" pattern="[0-9]" [(ngModel)]="flat.storeys" ngModel
+             name="storeys">
+      <div [hidden]="storeys.value >0 || storeys.pristine" class="alert alert-danger">
+        Storeys can not be less then 1
+      </div>
+    </div>
+  </div>
+
+  <div class="settings-item rowCustom">
+    <div class="settings-item_label col-md-3 pd-0">
+      Walling Material
+    </div>
+    <div class="col-md-3 pd-0">
+      <input class="input-form" type="text" pattern="[a-zA-Zа-яА-я іІїЇєЄ]*" #wallingMaterial="ngModel"
+             [(ngModel)]="flat.wallingMaterial" ngModel
+             name="wallingMaterial">
+      <div [hidden]="wallingMaterial.valid || wallingMaterial.pristine" class="alert alert-danger">
+        Incorrect walling material
+      </div>
+    </div>
+  </div>
+
+  <div class="settings-item rowCustom">
+    <div class="settings-item_label col-md-3 pd-0">
+      Number of rooms
+    </div>
+    <div class="settings-item_content col-md-3 pd-0">
+      <input class="input-form" type="number" #rooms="ngModel" [(ngModel)]="flat.rooms" pattern="[0-9]" ngModel
+             name="rooms">
+      <div [hidden]="rooms.value >0 || rooms.pristine" class="alert alert-danger">
+        Rooms can not be less then 1
+      </div>
+    </div>
+  </div>
+
+  <div class="settings-item rowCustom">
+    <div class="settings-item_label col-md-3 pd-0">
+      Floor
+    </div>
+    <div class="settings-item_content col-md-3 pd-0">
+      <input class="input-form" type="number" #floor="ngModel" [(ngModel)]="flat.floor" pattern="[0-9]" ngModel
+             name="floor">
+      <div [hidden]="floor.value >0 || floor.pristine" class="alert alert-danger">
+        Floor can not be less then 1
+      </div>
+    </div>
+  </div>
+
+  <div class="settings-item rowCustom">
+    <div class="settings-item_label col-md-3 pd-0">
+      Find your address
+    </div>
+    <div class="col-md-3 pd-0">
+      <input class="input-form" type="text" google-place placeholder="" (onSelect)="setAddress($event)" *ngIf="flat"
+             [ngModel]="flat.address" ngModel name="address" id="address">
+    </div>
+  </div>
+
+  <div class="settings-item rowCustom">
+    <div class="settings-item_label col-md-3 pd-0">
+      How many guests can stay
+    </div>
+    <div class="col-md-3 pd-0">
+      <input class="input-form" type="number" #guests="ngModel" [(ngModel)]="flat.guests" ngModel name="guests">
+      <div [hidden]="guests.value >0 || guests.pristine" class="alert alert-danger">
+        Guests can not be less then 1
+      </div>
+    </div>
+  </div>
+  <div class="settings-item rowCustom flex-center">
+    <button [disabled]="!name.valid && name.dirty || price.value <=0
+      && price.dirty || square.value <= 0 && square.dirty || storeys.value <= 0 && storeys.dirty
+      || floor.value <=0 && floor.dirty || guests.value <=0 && guests.dirty
+      || rooms.value<=0 && rooms.dirty || !wallingMaterial.valid && wallingMaterial.dirty"
+            class="btn btn-light btn-custom">Update
+    </button>
+  </div>
+</form>
+<div class="settings-item rowCustom flex-center">
+  <button (click)="deleteFlat(flat.id)" class="btn btn-light btn-custom">Delete flat</button>
+</div>
+
+<agm-map [zoom]="20" [latitude]="lat" [longitude]="lng" [scrollwheel]="null">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+
+<button class="closeButton" (click)="closeChanged()"></button>
+
+</body>
